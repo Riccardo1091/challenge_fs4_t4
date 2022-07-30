@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="script/filtered_list.js" defer></script>
+    <script type="text/javascript" src="script/filtered_table.js" defer></script>
     <link rel="stylesheet" href="style/style.css"/>
 </head>
 <body>
     <div class="wrapper">
-        <div class="container"></div>
-    </div> 
+        <div class="container">
+            <h3 class="filter-title">Filtro Articoli</h3>
+            <select id="filter-newsSite">
+                <option value='reset'></option>
+            </select>
+            <br/>
+        </div>
+        <div class="container">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Immagine</th>
+                        <th>Titolo</th>
+                        <th>Url</th>
+                        <th>Data pubblicazione</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
