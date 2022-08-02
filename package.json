@@ -1,0 +1,17 @@
+{
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hackingBot.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "13.0",
+    "node-fetch": "^3.2.10"
+  }
+}
