@@ -1,0 +1,33 @@
+#arts table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#arts td, #arts th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#arts table th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 55px;
+    z-index: 1;
+    background: #fff;
+}
+
+#arts tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#arts td img {
+    max-width: 200px;
+}
+
+#art_table h2 {
+    font-size: 1rem;
+}
+
+.hidden {display:none;}
