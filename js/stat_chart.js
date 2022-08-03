@@ -145,12 +145,12 @@ const chartNewsSite = new Chart(document.getElementById('chartNewsSite'), config
 const chartMonths = new Chart(document.getElementById('chartMonths'), configChartMonths);
 
 // primo grafico - percentuale articoli per autore per fetch
-let pubblications = null;
+let pubblicationz = null;
 let autori = [];
 (async () => {
     const response = await fetch("https://api.spaceflightnewsapi.net/v3/articles");
-    pubblications = await response.json();
-    pubblications.forEach( pubblication => {  //creo array di autori
+    pubblicationz = await response.json()
+    pubblicationz.forEach( pubblication => {  //creo array di autori
         if (autori.indexOf(pubblication.newsSite) === -1) {
             autori.push(pubblication.newsSite);
         }
@@ -159,11 +159,11 @@ let autori = [];
 
     autori.forEach(autore => {
         let counter = 0
-        pubblications.forEach(pub => {
+        pubblicationz.forEach(pub => {
             if (pub.newsSite == autore)
                 counter++
         })
-        const rapporto = counter/pubblications.length*100
+        const rapporto = counter/pubblicationz.length*100
         dataChartNewsSite.datasets[0].data.push(rapporto)   
     })
     chartNewsSite.update()

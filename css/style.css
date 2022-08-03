@@ -10706,7 +10706,6 @@ h5,
   transition: all 0.3s;
   position: relative;
   z-index: 0;
-  height: 100vh;
   position: sticky;
 }
 #sidebar:after {
@@ -10954,7 +10953,7 @@ html .fc-header-toolbar, body .fc-header-toolbar {
   padding-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
-}/*# sourceMappingURL=style.css.map */
+}
 
 table {
   font-family: arial, sans-serif;
@@ -10985,3 +10984,4 @@ td img {
 }
 
 .hidden {display:none;}
+#content .container .row:not(.row:first-of-type) {display:none;}
