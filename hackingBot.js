@@ -1,15 +1,14 @@
 import fetch from "node-fetch";
+import 'dotenv/config'
 import * as Discord from "discord.js";
 const client = new Discord.Client(
     {intents: ['GUILDS','GUILD_MEMBERS','GUILD_MESSAGES','GUILD_INTEGRATIONS']}
 );
-
-const token = "MTAwMzkwMzk0MzQxMzMzNDAxOQ.GEVJn3.__CMbNzaenUQtt0tn9QBcUSmnksb2LF5M0XD68";
-client.login(token);
+client.login(process.env.TOKEN);
 
 // bot va ONLINE
 client.on("ready", ()=>{
-    console.log("Online")
+    console.log("ONLINE")
     client.guilds.cache.forEach(guild =>{  //creo i comandi
         guild.commands.create({
             name: "articles",
@@ -54,7 +53,7 @@ client.on("interactionCreate", interaction =>{
                 const response = await fetch(url);
                 if(response.status==200){ //articolo cercato presente
                 const pubblications = await response.json();                
-                interaction.reply("Ecco ul contenuto dell'articolo: \n"+pubblications.title);}
+                interaction.reply("Ecco il contenuto dell'articolo: \n"+pubblications.title);}
                 else{  //articolo cercato inesistente
                     interaction.reply("Articolo non presente")
                 }
@@ -75,8 +74,6 @@ client.on("interactionCreate", interaction =>{
           })()
     }
 })
-
-
 
 
 
