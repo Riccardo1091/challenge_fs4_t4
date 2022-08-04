@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="css/calendar-style.css" />
     <!--script lista filtro download csv-->
     <link rel="stylesheet" href="css/lista-style.css">
+    <!-- script chartjs -->
+    <link rel="stylesheet" href="css/chart-style.css">
 </head>
 
 <body id="page-top">
@@ -34,6 +36,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container px-4">
             <button class="navbar-toggler" id="sidebarCollapse" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -68,13 +73,13 @@
         <!-- content -->
         <div id="content">
             <!-- header-->
-            <header class="bg-primary bg-gradient text-white">
+            <section class="bg-primary bg-gradient text-white">
                 <div class="container px-4 text-center">
                     <h1 class="fw-bolder">Challenge FullStack-4 </h1>
                     <p class="lead">Progetto Hacking Week Realizzato dal Team 1</p>
                     <a class="btn btn-lg btn-light" href="#cal">Start scrolling!</a>
                 </div>
-            </header>
+            </section>
             <!-- sezione Calendario -->
             <section id="cal">
                 <div class="container px-4">
@@ -131,8 +136,8 @@
                                 ogni mese nel corso del 2021
                             </p>
                             <div class="charts">
-                                <canvas style="margin:0 auto" id="chartNewsSite" width="850" height="700"></canvas>
-                                <canvas style="margin:0 auto" id="chartMonths" width="850" height="700"></canvas>
+                                <canvas style="margin:0 auto" id="chartNewsSite"></canvas>
+                                <canvas style="margin:0 auto" id="chartMonths"></canvas>
                             </div>
                         </div>
                     </div>

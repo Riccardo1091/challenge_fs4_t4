@@ -22,11 +22,6 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
-
-#content {
-    width: 100vw;
-}
-
 #sidebar p {
     font-size: 1.1em;
     font-weight: 300;

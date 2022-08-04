@@ -79,11 +79,7 @@
 html{
   overflow-x: hidden;
 }
-@media screen and (max-width: 992px) {
-  header{
-    width: 100vh;
-  }
-}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
