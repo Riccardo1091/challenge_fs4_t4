@@ -9,12 +9,13 @@ today = yyyy + '-' + mm + '-' + dd;
 console.log(today)
 let calendar = new FullCalendar.Calendar(calendarEl, {
   expandRows: true,
-  slotMinTime: '08:00',
-  slotMaxTime: '20:00',
+  slotMinTime: '00:00',
+  slotMaxTime: '23:59',
   headerToolbar: {
     left: 'prev,next today',
     center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+    color: 'red'
   },
   initialView: 'dayGridMonth',
   initialDate: today,
@@ -22,7 +23,11 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
   editable: true,
   selectable: true,
   nowIndicator: true,
-  dayMaxEvents: true, // allow "more" link when too many events
+  dayMaxEvents: true,
+  eventColor: 'blue',
+  eventBackgroundColor: 'lightgreen',
+  eventTextColor:'black',
+  eventDisplay: 'block', // allow "more" link when too many events
   eventClick: function(event) {
     if (event.event.url) {
       event.jsEvent.preventDefault();
@@ -35,7 +40,7 @@ let events = [];
 //fetch
 let pubblications = [];
 (async () => {
-  const response = await fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=50");
+  const response = await fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=100");
   pubblications = await response.json();
   pubblications.forEach(pubblication => {
     const newEvent = [{
