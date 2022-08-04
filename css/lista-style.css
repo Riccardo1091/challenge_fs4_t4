@@ -1,7 +1,10 @@
 #arts table {
     border-collapse: collapse;
     width: 100%;
+    table-layout:fixed;
 }
+
+#arts td a {word-break: break-word;}
 
 #arts td, #arts th {
     border: 1px solid #dddddd;

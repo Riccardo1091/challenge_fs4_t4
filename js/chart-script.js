@@ -125,7 +125,7 @@ const configChartMonths = {
             },
             title:{
                 display: true,
-                text: 'Numero articoli per autore per ogni mese dell\'anno (basato su SpaceNews)',
+                text: '',
                 fontSize: 40,
                 padding: 40
             },
@@ -140,9 +140,10 @@ const configChartMonths = {
         }
     }, plugins: [ChartDataLabels]
 };
+
 // avvio chart
-const chartNewsSite = new Chart(document.getElementById('chartNewsSite'), configChartNewsSite);
-const chartMonths = new Chart(document.getElementById('chartMonths'), configChartMonths);
+const chartNewsSite = new Chart(ctx, configChartNewsSite);
+let chartMonths = new Chart(ctx2, configChartMonths);
 
 // primo grafico - percentuale articoli per autore per fetch
 let pubblicationz = null;
@@ -172,10 +173,35 @@ let autori = [];
 // secondo grafico - numero articoli per mese per autore
 (async () => {
     let mesi = ['01','02','03','04','05','06','07','08','09','10','11','12']
-    for (mese of mesi) {
-        const res = await fetch(`https://api.spaceflightnewsapi.net/v3/articles/count?publishedAt_gt=2021-${mese}&newsSite_contains=2`);
-        let num_art = await res.json()
-        dataChartMonths.datasets[0].data.push(num_art)
-    }
-    chartMonths.update()
-})();
+    // fetch testate
+    const r = await fetch ('https://api.spaceflightnewsapi.net/v3/info')
+    const testate = await r.json()
+    // popolamento select testate
+    testate.newsSites.forEach(testata => {
+        let option = document.createElement("option")
+        option.value = testate.newsSites.indexOf(testata)
+        option.textContent = testata
+        document.getElementById('filter-testate').append(option)
+    })
+    // filtro testate
+    document.getElementById('filter-testate').addEventListener('change', async (e) => {
+        let testata = e.target.value
+        if (testata == 'reset') {chartMonths.destroy();}
+        else {
+            chartMonths.destroy()
+            console.log('destroy chart')
+            dataChartMonths.datasets[0].data = []
+            chartMonths = new Chart(ctx2, configChartMonths);
+            console.log('creazione chart')
+
+            for (mese of mesi) {
+                const res = await fetch(`https://api.spaceflightnewsapi.net/v3/articles/count?publishedAt_gt=2021-${mese}&newsSite_contains=${testata}`);
+                let num_art = await res.json()
+                dataChartMonths.datasets[0].data.push(num_art)
+            }
+            configChartMonths.options.plugins.title.text = `Numero articoli per autore per ogni mese dell\'anno (basato su ${testate.newsSites[testata]})`
+            chartMonths.update()
+            console.log('aggiornamento')
+        }
+    })
+})()

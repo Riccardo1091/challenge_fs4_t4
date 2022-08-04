@@ -6,7 +6,6 @@ var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 
 today = yyyy + '-' + mm + '-' + dd;
-console.log(today)
 let calendar = new FullCalendar.Calendar(calendarEl, {
   expandRows: true,
   slotMinTime: '00:00',
@@ -14,7 +13,7 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
   headerToolbar: {
     left: 'prev,next today',
     center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+    right: 'dayGridMonth,listWeek',
     color: 'red'
   },
   initialView: 'dayGridMonth',
