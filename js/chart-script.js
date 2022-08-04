@@ -148,7 +148,7 @@ const chartMonths = new Chart(document.getElementById('chartMonths'), configChar
 let pubblicationz = null;
 let autori = [];
 (async () => {
-    const response = await fetch("https://api.spaceflightnewsapi.net/v3/articles");
+    const response = await fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=100");
     pubblicationz = await response.json();
     pubblicationz.forEach( pubblication => {  //creo array di autori
         if (autori.indexOf(pubblication.newsSite) === -1) {
