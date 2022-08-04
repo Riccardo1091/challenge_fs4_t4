@@ -1,5 +1,4 @@
 #arts table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
@@ -31,3 +30,10 @@
 }
 
 .hidden {display:none;}
+
+@media screen and (max-width: 800px ) {
+    #arts table tbody tr{
+        display: flex;
+        flex-direction: column;
+    }
+}

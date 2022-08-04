@@ -76,6 +76,14 @@
   }
 }
 
+html{
+  overflow-x: hidden;
+}
+@media screen and (max-width: 992px) {
+  header{
+    width: 100vh;
+  }
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -1986,6 +1994,7 @@ progress {
 .table > :not(:first-child) {
   border-top: 2px solid currentColor;
 }
+
 
 .caption-top {
   caption-side: top;
@@ -4035,7 +4044,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  min-height: 4rem;
+  min-height: 4.5rem;
 }
 .navbar > .container,
 .navbar > .container-fluid,
