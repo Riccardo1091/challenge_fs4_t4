@@ -125,7 +125,7 @@ const configChartMonths = {
             },
             title:{
                 display: true,
-                text: 'Numero articoli per autore per ogni mese dell\'anno',
+                text: 'Numero articoli per autore per ogni mese dell\'anno (basato su SpaceNews)',
                 fontSize: 40,
                 padding: 40
             },
